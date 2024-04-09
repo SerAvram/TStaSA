@@ -1,0 +1,32 @@
+@startuml
+ArticleList "1"--"1" Editor : chooses <
+Article ..> ArticleList : contains >
+EditPanel <|.. Article
+EditPanel --> Editor : edit
+
+class Editor {
+{field} +ArticleId:Iteger
+{field} +ArticleName:String
+{field} +ArticleSurnameName:String
+{method} +OpenArticleList:Boolean
+}
+
+class ArticleList {
+{field} +ArticleIdList(ArticleId:Iteger):String
+{method} +OpenArticle:Boolean
+}
+
+class EditPanel {
+{method} +EditArticle:Boolean
+{method} +SaveArticle:Boolean
+{method} +PublishArticle:Boolean
+}
+
+class Article {
+{field} +ArticleId:Iteger
+{field} +ArticleName:String
+{field} +ArticleText:String
+{method} +Edit:Boolean
+}
+
+@enduml
