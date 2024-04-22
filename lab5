@@ -31,4 +31,8 @@ ArticleList --> Article : open article
 
 EditPanel -down-> choice1
 choice1 -down-> Cancel
+Save --> ArticleList : Back
+Cancel --> ArticleList : Back 
+Publish --> ArticleList : Back
+ArticleList --> authorization : logOut
 @enduml
