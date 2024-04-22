@@ -1,0 +1,33 @@
+@startuml
+[*] --> authorization : Sign in
+state choice1 <<choice>>
+authorization -down-> ArticleList : open list
+authorization : do/ostendLoginForm
+authorization : do/checkUserInDatabase
+
+ArticleList : do/showArtivleFromList
+ArticleList : do/openArticle
+
+Article : do/showArticleContent
+
+Article --> EditPanel : start editing
+choice1 --> Save
+EditPanel : do/Amend
+EditPanel : 
+
+Save -down-> Publish
+Save --> [*]
+Save : do/SaveArticel
+
+Publish -down-> [*]
+Publish : do/PublishArticel
+
+Cancel -down-> [*]
+Cancel : exit/ArticleCancellation
+
+ArticleList --> Article : open article
+
+
+EditPanel -down-> choice1
+choice1 -down-> Cancel
+@enduml
