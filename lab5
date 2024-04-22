@@ -14,7 +14,7 @@ Article : do/openEditPanel
 Article --> EditPanel : start editing
 choice1 --> Save
 EditPanel : do/Amend
-EditPanel : 
+EditPanel : do/finish
 
 Save -down-> Publish
 Save --> [*]
