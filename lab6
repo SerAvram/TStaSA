@@ -1,0 +1,26 @@
+@startuml
+start
+:to authorize;
+:open article list;
+if (whether there are unprocessed articles in the list?) then (no) 
+stop
+else (yes)
+end if
+:open article;
+:open edit panel;
+:Editing;
+if (undo all changes?) then (yes) 
+:undo changes;
+stop
+else (no)
+end if
+:finish editing;
+if (what to do with the processed article?) then (Save) 
+:Update in database;
+stop
+else (Publish)
+end if
+:Update in database;
+:Publish;
+stop
+@enduml
