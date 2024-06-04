@@ -1,0 +1,28 @@
+@startuml
+actor User
+ node "Editor Device" {
+  package "Web Browser" {
+  [Editor]
+}
+}
+
+node "Web Server" {
+  [Web Application]
+}
+
+node "Application Server" {
+  [Buisbes Loggic]
+}
+
+database Database {
+  [SQL Database]
+}
+
+
+User --> "Editor Device" : Interacts
+[Editor] --> [Web Application] : HTTP
+[Web Application] --> [Buisbes Loggic] : HTTP
+[Buisbes Loggic] --> [SQL Database]
+
+
+@enduml
