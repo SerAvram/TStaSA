@@ -1,0 +1,27 @@
+@startuml
+package "Client" {
+  [Web Browser]
+  [Editor]
+}
+package "Web Server" {
+  [Web Application]
+}
+package "Aplication Server" {
+  [Busineslogic]
+}
+package "Database Server" {
+  [Database]
+}
+
+[Web Browser] --> [Editor]: HTTP
+[Editor] --> [Web Application] : HTTP
+[Web Application] --> [Busineslogic]: HTTP
+[Busineslogic] --> [Database]
+[Web Application] --> View : Generate HTML Responses 
+[Web Application] --> Controllers : Process HTTP Request
+[Web Application] --> Models : Handle Data Operations
+[Busineslogic] --> News_Editing : Editing News
+[Busineslogic] --> Show_News : Show News
+[Database] --> News_Data : Store News Information
+[Database] --> Content_Data : Store Content Information
+@enduml
